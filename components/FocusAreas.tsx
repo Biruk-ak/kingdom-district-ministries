@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 // Reusable Icon Wrapper
 const IconWrapper = ({ children }: { children: React.ReactNode }) => (
@@ -43,69 +44,72 @@ const Icons = {
 const areas = [
     {
         title: "Worship & Prayer",
-        description: "Fostering a culture of worship and prayer to draw closer to God.",
+        description: "Unite in worship and prayer to deepen faith and connect with God.",
         icon: <Icons.WorshipPrayer />
     },
     {
         title: "Faith-Based Education",
-        description: "Providing biblical teachings and discipleship for spiritual growth.",
+        description: "Gain knowledge and grow spiritually through biblical teachings.",
         icon: <Icons.Education />
     },
     {
         title: "Leadership & Discipleship",
-        description: "Training and equipping leaders to serve and spread the Gospel.",
+        description: "Equip and mentor leaders to spread the Gospel and serve others.",
         icon: <Icons.Leadership />
     },
     {
         title: "Global Community Empowerment",
-        description: "Empowering communities worldwide through service and support.",
+        description: "Support and uplift communities worldwide with love and service.",
         icon: <Icons.Community />
     }
 ];
 
 export const FocusAreas = () => {
     return (
-        <section className="relative w-full py-24 px-6 md:px-12 bg-blue-50/30 overflow-hidden">
-            {/* Background Texture Placeholder */}
-            <div className="absolute inset-0 z-0 opacity-40 mix-blend-overlay">
-                <div className="w-full h-full bg-[url('https://www.transparenttextures.com/patterns/clouds.png')]" />
+        <section className="relative w-full py-24 overflow-hidden">
+            {/* Background Image */}
+            <div className="absolute inset-0 z-0 select-none pointer-events-none">
+                <Image
+                    src="/66.webp"
+                    alt="Focus Areas Background"
+                    fill
+                    className="object-cover"
+                    priority
+                />
             </div>
 
-            <div className="relative z-10 container mx-auto flex flex-col items-center text-center">
+            <div className="relative z-10 container mx-auto px-6 md:px-12 flex flex-col items-center text-center">
 
                 <span className="text-[#C29D66] font-medium tracking-[0.2em] text-sm uppercase mb-4">
-                    Our Focus Areas
+                    Explore Our Programs
                 </span>
 
-                <h2 className="text-4xl md:text-5xl font-serif text-[#0F172A] mb-6 leading-tight max-w-4xl">
-                    Empowering Communities Through Faith and Action
+                <h2 className="text-4xl md:text-5xl font-serif text-primary mb-6 leading-tight max-w-4xl">
+                    Strengthening Communities in Christ
                 </h2>
 
-                <p className="text-slate-600 text-lg max-w-2xl mb-10 leading-relaxed font-light">
-                    We are dedicated to transforming lives and communities through Christ-centered initiatives. Explore our core focus areas below:
+                <p className="text-primary/70 text-lg max-w-2xl mb-8 leading-relaxed font-light">
+                    Our programs are designed to enrich lives and empower communities through the love and teachings of Christ.
                 </p>
 
-                {/* Divider */}
-                <div className="flex items-center w-full max-w-2xl mb-16 opacity-40">
-                    <div className="h-[1px] bg-[#C29D66] flex-1"></div>
-                    <div className="mx-4 text-[#C29D66]">♦</div>
-                    <div className="h-[1px] bg-[#C29D66] flex-1"></div>
-                </div>
+                <button className="px-10 py-3 bg-primary text-white rounded-md font-medium hover:bg-primary/90 transition-all shadow-lg mb-16 flex items-center gap-2">
+                    View All Programs <span className="text-lg">→</span>
+                </button>
 
                 {/* Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full mb-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
                     {areas.map((area, index) => (
-                        <div key={index} className="bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 border border-slate-50 flex flex-col items-center">
+                        <div
+                            key={index}
+                            className="bg-white p-8 pb-12 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-50 flex flex-col items-center group translate-y-[65px]"
+                        >
                             <IconWrapper>{area.icon}</IconWrapper>
-                            <h3 className="text-xl font-serif text-[#0F172A] mb-4 font-medium px-4">{area.title}</h3>
-                            <p className="text-slate-500 text-sm leading-relaxed">{area.description}</p>
+                            <h3 className="text-xl font-serif text-primary mb-4 font-medium px-4">{area.title}</h3>
+                            <div className="w-10 h-[1px] bg-[#C29D66]/50 mb-4 group-hover:w-20 transition-all duration-300"></div>
+                            <p className="text-primary/70 text-sm leading-relaxed">{area.description}</p>
                         </div>
                     ))}
                 </div>
-
-                <button className="px-10 py-3 bg-[#1e293b] text-white rounded-md font-medium hover:bg-[#334155] transition-all shadow-lg shadow-blue-900/10">
-                    Learn More
-                </button>
 
             </div>
         </section>

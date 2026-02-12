@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 // Reusable Icon Component
 const IconWrapper = ({ children }: { children: React.ReactNode }) => (
@@ -66,34 +67,34 @@ const features = [
 
 export const WhoWeAre = () => {
     return (
-        <section className="relative w-full py-24 px-6 md:px-12 bg-white overflow-hidden">
-            {/* Background Image Placeholder with Overlay */}
-            <div className="absolute inset-0 z-0 pointer-events-none">
-                {/* Gradient Overlay for the fade effect */}
-                <div className="absolute inset-0 bg-gradient-to-b from-white via-white/80 to-white/90 z-10" />
-                {/* This image is a placeholder for the crowd background */}
-                <div
-                    className="w-full h-full bg-cover bg-center opacity-30"
-                    style={{ backgroundImage: "url('https://images.unsplash.com/photo-1473177104440-ffee2f376098?q=80&w=2670&auto=format&fit=crop')" }}
+        <section className="relative w-full py-24 overflow-hidden">
+            {/* Background Image */}
+            <div className="absolute inset-0 z-0 select-none pointer-events-none">
+                <Image
+                    src="/22.webp"
+                    alt="Who We Are Background"
+                    fill
+                    className="object-cover"
+                    priority
                 />
             </div>
 
-            <div className="relative z-10 container mx-auto flex flex-col items-center text-center">
+            <div className="relative z-10 container mx-auto px-6 md:px-12 flex flex-col items-center text-center">
 
                 {/* Section Header */}
                 <span className="text-[#C29D66] font-medium tracking-[0.2em] text-sm uppercase mb-6 block">
                     Who We Are
                 </span>
 
-                <h2 className="text-4xl md:text-5xl font-serif text-[#0F172A] mb-8 leading-tight max-w-4xl">
+                <h2 className="text-4xl md:text-5xl font-serif text-primary mb-8 leading-tight max-w-4xl">
                     Living Out Our Faith Through Worship, Education, and Outreach
                 </h2>
 
-                <p className="text-slate-600 text-lg md:text-xl max-w-3xl mb-10 leading-relaxed font-light">
+                <p className="text-primary/90 text-lg md:text-xl max-w-3xl mb-10 leading-relaxed font-light">
                     Kingdom District Ministries exists to spread the message of Christ through worship, education, leadership development, and compassionate global outreach.
                 </p>
 
-                <button className="px-8 py-3 bg-[#1e293b] text-white rounded-md font-medium hover:bg-[#334155] transition-all shadow-md mb-16">
+                <button className="px-8 py-3 bg-primary text-white rounded-md font-medium hover:bg-primary/90 transition-all shadow-md mb-16">
                     Learn More
                 </button>
 
@@ -121,10 +122,10 @@ export const WhoWeAre = () => {
                                     {feature.icon}
                                 </IconWrapper>
                             </div>
-                            <h3 className="text-xl font-serif text-[#0F172A] mb-4 font-medium">
+                            <h3 className="text-xl font-serif text-primary mb-4 font-medium">
                                 {feature.title}
                             </h3>
-                            <p className="text-slate-500 text-sm leading-relaxed">
+                            <p className="text-primary/70 text-sm leading-relaxed">
                                 {feature.description}
                             </p>
                         </div>
